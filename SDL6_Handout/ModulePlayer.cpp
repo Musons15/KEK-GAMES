@@ -16,18 +16,18 @@ ModulePlayer::ModulePlayer()
 	position.x = 150;
 	position.y = 3200;
 
-	// idle animation (just the ship)
-	idle.PushBack({259, 54, 82, 101});
+	// idle animation 
+	idle.PushBack({87, 19, 28, 33});
 
 	// move right
-	right.PushBack({361, 52, 75, 102});
-	right.PushBack({467, 52, 75, 102});
+	right.PushBack({122, 19, 28, 33});
+	right.PushBack({157, 19, 28, 33});
 	right.loop = false;
 	right.speed = 0.1f;
 
 	// Move down
-	left.PushBack({ 163, 52, 75, 102 });
-	left.PushBack({70, 52, 75, 102});
+	left.PushBack({ 54, 19, 28, 33 });
+	left.PushBack({24, 19, 28, 33});
 	left.loop = false;
 	left.speed = 0.1f;
 }
@@ -58,7 +58,7 @@ bool ModulePlayer::CleanUp()
 // Update: draw background
 update_status ModulePlayer::Update()
 {
-	int speed = 5;
+	int speed = 3;
 
 	if(App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 	{
@@ -93,8 +93,8 @@ update_status ModulePlayer::Update()
 	// TODO 3: Shoot lasers when the player hits SPACE
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 	{
-		App->particles->AddParticle(App->particles->laser, position.x + 15, position.y + 10);
-		App->particles->AddParticle(App->particles->laser, position.x + 55, position.y + 10);
+		App->particles->AddParticle(App->particles->laser, position.x + 4, position.y + 10);
+		App->particles->AddParticle(App->particles->laser, position.x + 17, position.y + 10);
 	}
 
 	if(App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE

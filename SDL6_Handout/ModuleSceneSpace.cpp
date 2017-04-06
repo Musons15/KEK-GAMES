@@ -9,6 +9,7 @@
 
 ModuleSceneSpace::ModuleSceneSpace()
 {
+	
 }
 
 ModuleSceneSpace::~ModuleSceneSpace()
@@ -20,7 +21,7 @@ bool ModuleSceneSpace::Start()
 	LOG("Loading space scene");
 	
 	background = App->textures->Load("rtype/lvl1_background.png");
-	App->render->camera.y = -9200;
+	App->render->camera.y = -6320;
 
 	App->player->Enable();
 	
@@ -44,9 +45,8 @@ update_status ModuleSceneSpace::Update()
 	// Move camera forward -----------------------------
 	int scroll_speed = 1;
 
-	
 	App->player->position.y -= 1;
-	App->render->camera.y += 3;
+	App->render->camera.y += 2;
 	
 
 	// Draw everything --------------------------------------

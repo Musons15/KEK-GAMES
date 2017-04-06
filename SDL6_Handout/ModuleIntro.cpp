@@ -26,7 +26,7 @@ bool ModuleIntro::Start()
 	LOG("Loading space scene");
 
 	background_texture = App->textures->Load("rtype/intro.png");
-	
+	App->player->Disable();
 
 	return true;
 }
@@ -48,7 +48,7 @@ update_status ModuleIntro::Update()
 	
 
 	// Draw everything --------------------------------------
-	App->render->Blit(background_texture, 0, 0, &background, NULL);
+	App->render->Blit(background_texture, 0,0, &background, NULL);
 
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)

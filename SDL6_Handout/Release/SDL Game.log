@@ -1,0 +1,17 @@
+﻿  Application.cpp
+  Globals.cpp
+  Main.cpp
+  ModuleFadeToBlack.cpp
+  ModuleInput.cpp
+  ModuleIntro.cpp
+  ModuleParticles.cpp
+  ModulePlayer.cpp
+  ModuleRender.cpp
+  ModuleSceneSpace.cpp
+  ModuleTextures.cpp
+  ModuleWindow.cpp
+  Generating code
+  Finished generating code
+  All 103 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  SDL Game.vcxproj -> C:\Users\sebastianlt\Documents\GitHub\KEK-GAMES\SDL6_Handout\Release\SDL6 Handout.exe
+  SDL Game.vcxproj -> C:\Users\sebastianlt\Documents\GitHub\KEK-GAMES\SDL6_Handout\Release\SDL6 Handout.pdb (Full PDB)

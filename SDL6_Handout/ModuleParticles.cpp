@@ -23,8 +23,7 @@ bool ModuleParticles::Start()
 	graphics = App->textures->Load("rtype/space_ship.png");
 
 	// TODO 2: Create the template for a new particle "laser"
-	laser.anim.PushBack({ 53,2174,10,40 });
-	laser.anim.speed = 0.3f;
+	laser.anim.PushBack({ 20,735,5,16 });
 	laser.anim.loop = true;
 	laser.speed.y = -10;
 	laser.life = 1500;
