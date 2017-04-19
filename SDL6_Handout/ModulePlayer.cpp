@@ -5,6 +5,7 @@
 #include "ModuleParticles.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
+#include "ModuleCollision.h"
 
 
 
@@ -14,22 +15,23 @@ ModulePlayer::ModulePlayer()
 	current_animation = NULL;
 
 	position.x = 150;
-	position.y = 3200;
+	position.y = 0;
 
 	// idle animation 
-	idle.PushBack({87, 19, 28, 33});
+	idle.PushBack({ 87, 19, 28, 33 });
 
 	// move right
-	right.PushBack({122, 19, 28, 33});
-	right.PushBack({157, 19, 28, 33});
+	right.PushBack({ 122, 19, 28, 33 });
+	right.PushBack({ 157, 19, 28, 33 });
 	right.loop = false;
 	right.speed = 0.1f;
 
 	// Move down
 	left.PushBack({ 54, 19, 28, 33 });
-	left.PushBack({24, 19, 28, 33});
+	left.PushBack({ 24, 19, 28, 33 });
 	left.loop = false;
 	left.speed = 0.1f;
+
 }
 
 ModulePlayer::~ModulePlayer()
@@ -41,6 +43,8 @@ bool ModulePlayer::Start()
 	LOG("Loading player");
 
 	graphics = App->textures->Load("rtype/space_ship.png");
+
+	col = App->collision->AddCollider({ position.x, position.y, 28, 32 }, COLLIDER_PLAYER, this);
 
 	return true;
 }
@@ -59,6 +63,9 @@ bool ModulePlayer::CleanUp()
 update_status ModulePlayer::Update()
 {
 	int speed = 3;
+
+	position.y -= 1;
+
 
 	if(App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 	{
@@ -90,7 +97,6 @@ update_status ModulePlayer::Update()
 		}
 	}
 
-	// TODO 3: Shoot lasers when the player hits SPACE
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 	{
 		App->particles->AddParticle(App->particles->laser, position.x + 4, position.y + 10);
@@ -100,6 +106,10 @@ update_status ModulePlayer::Update()
 	if(App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_IDLE
 	   && App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_IDLE)
 		current_animation = &idle;
+
+
+	col->SetPos(position.x, position.y);
+
 
 	// Draw everything --------------------------------------
 

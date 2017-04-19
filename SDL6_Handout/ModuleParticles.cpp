@@ -11,6 +11,14 @@ ModuleParticles::ModuleParticles()
 {
 	for(uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		active[i] = nullptr;
+	
+	
+	
+	laser.anim.PushBack({ 20,735,5,16 });
+	laser.anim.loop = true;
+	laser.speed.y = -10;
+	laser.life = 1500;
+
 }
 
 ModuleParticles::~ModuleParticles()
@@ -22,12 +30,8 @@ bool ModuleParticles::Start()
 	LOG("Loading particles");
 	graphics = App->textures->Load("rtype/space_ship.png");
 
-	// TODO 2: Create the template for a new particle "laser"
-	laser.anim.PushBack({ 20,735,5,16 });
-	laser.anim.loop = true;
-	laser.speed.y = -10;
-	laser.life = 1500;
-
+	//LOAD FX PARTICLES
+	 
 	return true;
 }
 

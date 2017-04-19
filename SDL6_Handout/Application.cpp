@@ -7,19 +7,22 @@
 #include "ModulePlayer.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleParticles.h"
+#include "ModuleCollision.h"
 #include "ModuleIntro.h"
 
 Application::Application()
 {
-	modules[0] = window = new ModuleWindow();
-	modules[1] = render = new ModuleRender();
-	modules[2] = input = new ModuleInput();
-	modules[3] = textures = new ModuleTextures();
-	modules[4] = scene_space = new ModuleSceneSpace();
-	modules[5] = player = new ModulePlayer();
-	modules[6] = particles = new ModuleParticles();
-	modules[7] = fade = new ModuleFadeToBlack();
-	modules[8] = intro = new ModuleIntro();
+	int i = 0;
+	modules[i++] = window = new ModuleWindow();
+	modules[i++] = render = new ModuleRender();
+	modules[i++] = input = new ModuleInput();
+	modules[i++] = textures = new ModuleTextures();
+	modules[i++] = scene_space = new ModuleSceneSpace();
+	modules[i++] = player = new ModulePlayer();
+	modules[i++] = particles = new ModuleParticles();
+	modules[i++] = fade = new ModuleFadeToBlack();
+	modules[i++] = collision = new ModuleCollision();
+	modules[i++] = intro = new ModuleIntro();
 }	
 
 Application::~Application()

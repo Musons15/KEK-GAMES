@@ -4,6 +4,7 @@
 #include "Module.h"
 #include "Animation.h"
 #include "p2Point.h"
+#include "ModuleCollision.h"
 
 struct SDL_Texture;
 
@@ -25,6 +26,7 @@ public:
 	Animation right;
 	Animation left;
 	iPoint position;
+	Collider* col;
 };
 
 #endif
